@@ -21,6 +21,6 @@ public class Article {
     private String body;
     private String tags;
     private Type type;
-    @Field(type= FieldType.Date)
+    @Field(type= FieldType.Date, pattern = "uuuu-MM-dd'T'HH:mm:ss")
     private String createDate;
 }
