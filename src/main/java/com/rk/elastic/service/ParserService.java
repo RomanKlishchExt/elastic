@@ -24,8 +24,8 @@ import static com.rk.elastic.common.Constant.DATE_TIME_STANDARD;
 @Slf4j
 @Service
 public class ParserService {
-    private DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_TIME_STANDARD);
-    private String TRIM_REGEX = "<code>(.|\\n)*?<\\/code>";
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern(DATE_TIME_STANDARD);
+    private final String TRIM_REGEX = "<code>(.|\\n)*?<\\/code>";
 
     public List<Article> load(MultipartFile inputStream) {
         List<Article> articleList = new ArrayList<>();
@@ -39,7 +39,7 @@ public class ParserService {
                         .title(csvRecord.get(1))
                         .body(csvRecord.get(2))
                         .tags(splitTagField(csvRecord.get(3)))
-                         .createDate(LocalDateTime.parse(csvRecord.get(4), formatter))
+                        .createDate(LocalDateTime.parse(csvRecord.get(4), formatter))
                         .type(Type.valueOf(csvRecord.get(5)))
                         .build());
             }
