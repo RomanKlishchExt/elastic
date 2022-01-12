@@ -15,7 +15,7 @@ import java.util.Optional;
 @Service
 @RequiredArgsConstructor
 public class ArticleService {
-    private final LoadService loadService;
+    private final ParserService loadService;
     private final ArticleRepository articleRepository;
 
     public void saveImport(MultipartFile file) {
